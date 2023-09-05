@@ -1,0 +1,9 @@
+name: python-templates
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - uvicorn
+  - fastapi
+  - black
+  - python=3.11

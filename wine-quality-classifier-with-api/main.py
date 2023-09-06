@@ -20,7 +20,7 @@ df.info()
 # Convert string 'type' column to numbers
 df.replace({"white": 1, "red": 0}, inplace=True)
 
-# Show column statistics
+# Show plots of column statistics
 print(df.describe().T)
 
 # Show number of null values in each column

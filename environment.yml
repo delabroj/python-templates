@@ -17,3 +17,4 @@ dependencies:
   - keras
   - tensorflow
   - pydot
+  - statsmodels

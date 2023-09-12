@@ -18,3 +18,5 @@ dependencies:
   - tensorflow
   - pydot
   - statsmodels
+  - nltk
+  - wordcloud

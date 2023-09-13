@@ -21,3 +21,4 @@ dependencies:
   - nltk
   - wordcloud
   - tensorflow-hub
+  - opencv

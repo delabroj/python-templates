@@ -1,3 +1,4 @@
 __pycache__
 .vscode
 model.bin
+handwritten-digits-logistic-regression/data

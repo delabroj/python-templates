@@ -22,3 +22,5 @@ dependencies:
   - wordcloud
   - tensorflow-hub
   - opencv
+  - pytorch
+  - torchvision

@@ -10,10 +10,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import (
-    classification_report,
     accuracy_score,
     confusion_matrix,
-    ConfusionMatrixDisplay,
 )
 from sklearn.metrics import precision_score, recall_score, f1_score
 import tensorflow_hub as hub

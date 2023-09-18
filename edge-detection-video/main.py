@@ -9,8 +9,9 @@ def canny_edge_detection(frame):
     blurred = cv2.GaussianBlur(src=gray, ksize=(3, 5), sigmaX=0.5)
 
     # Perform Canny edge detection
-    edges = cv2.Canny(blurred, 50, 70)
+    edges = cv2.Canny(blurred, 70, 90)
 
+    # return blurred, edges
     return blurred, 255 - edges
 
 
@@ -23,6 +24,8 @@ while True:
     if not ret:
         print("Image not captured")
         break
+
+    frame = cv2.flip(frame, 1)
 
     # Perform Canny edge detection on the frame
     blurred, edges = canny_edge_detection(frame)

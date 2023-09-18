@@ -2,3 +2,7 @@ __pycache__
 .vscode
 model.bin
 handwritten-digits-logistic-regression/data
+*.mp4
+pixellib_models
+box_extract_*.jpg
+output_image*.jpg

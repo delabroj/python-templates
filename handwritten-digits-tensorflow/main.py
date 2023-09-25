@@ -8,8 +8,36 @@ import seaborn as sns
 from keras.datasets import mnist
 from keras import layers
 from sklearn import metrics
+from sklearn.metrics import accuracy_score
+from scipy.ndimage import shift
 
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
+
+
+print(X_train.shape)
+
+
+# Method to shift the image by given dimension
+# def shift_image(image, dx, dy):
+#     # image = image.reshape((28, 28))
+#     shifted_image = shift(image, [dy, dx], cval=0, mode="constant")
+#     return shifted_image
+
+
+# X_train_augmented = [image for image in X_train]
+# y_train_augmented = [image for image in y_train]
+
+# print("creating augmented data source")
+# for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+#     for image, label in zip(X_train, y_train):
+#         X_train_augmented.append(shift_image(image, dx, dy))
+#         y_train_augmented.append(label)
+
+
+# # Shuffle the dataset
+# shuffle_idx = np.random.permutation(len(X_train_augmented))
+# X_train = np.array(X_train_augmented)[shuffle_idx]
+# y_train = np.array(y_train_augmented)[shuffle_idx]
 
 # Check how many examples do we have in our train and test sets
 print(
@@ -84,7 +112,7 @@ model.compile(
 
 # Train model or load saved model
 # model.fit(X_train, y_train, epochs=10)
-model.load_weights("model.bin")
+model.load_weights("./model_base")
 
 # Check against test set
 model.evaluate(X_test, y_test)
@@ -114,6 +142,10 @@ for ax, image, prediction in zip(axes, X_test, predicted):
     ax.set_axis_off()
     ax.imshow(image, cmap="gray", interpolation="nearest")
     ax.set_title(f"Prediction: {prediction}")
+
+# accuracy
+acc = accuracy_score(y_test, predicted)
+print("Gradient Boosting Classifier accuracy is : {:.3f}".format(acc))
 
 disp = metrics.ConfusionMatrixDisplay.from_predictions(y_test, predicted)
 disp.figure_.suptitle("Confusion Matrix")
